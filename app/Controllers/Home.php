@@ -6,7 +6,12 @@ class Home extends BaseController
 {
 	public function index()
 	{
-		return view('welcome_message');
+		$penonton = $this->PenontonModel->findAll();
+		$data=[
+			'penonton'=>$penonton
+		];
+		
+		return view('welcome_message',$data);
 	}
 	public function input()
 	{
@@ -14,6 +19,12 @@ class Home extends BaseController
 	}
 	public function simpan()
 	{
-		$this->request->getVar();
+		$this->PenontonModel->save([
+			'nis'=>$this->request->getVar('nis'),
+			'nama'=>$this->request->getVar('nama'),
+			'jenis'=>$this->request->getVar('jenis'),
+			'valid'=>'false',
+		]);
+		return redirect()->to('/');
 	}
 }

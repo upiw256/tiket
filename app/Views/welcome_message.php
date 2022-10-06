@@ -73,24 +73,28 @@
             </tr>
         </thead>
         <tbody>
+			<?php 
+			$no = 1;
+			foreach($penonton as $p): 
+			?>
             <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                 <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    1
+                    <?= $no++ ?>
                 </th>
                 <td class="py-4 px-6">
-                    Luthfi
+                    <?= $p['nama'] ?>
                 </td>
                 <td class="py-4 px-6">
-                    65432185
+                    <?= $p['nis'] ?>
                 </td>
                 <td class="py-4 px-6">
-                    Siswa
+                    <?= $p['jenis'] ?>
                 </td>
                 <td class="py-4 px-6">
                     <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit </a>|<a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline"> Hapus</a>|<a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline"> Cetak</a>
                 </td>
             </tr>
-            
+            <?php endforeach; ?>
         </tbody>
     </table>
 </div>
