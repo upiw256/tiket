@@ -27,6 +27,7 @@ class Penonton extends Migration
 				'type' => 'VARCHAR',
 				'constraint' => '100',
 			),
+			
 		));
 		$this->forge->addKey('id_penonton', TRUE);
 		$this->forge->createTable('penonton');

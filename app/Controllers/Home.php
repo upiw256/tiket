@@ -12,4 +12,8 @@ class Home extends BaseController
 	{
 		return view('input');
 	}
+	public function simpan()
+	{
+		$this->request->getVar();
+	}
 }
