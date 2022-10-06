@@ -48,52 +48,7 @@
 	</nav>
 
 	<!-- Form -->
-	
-<div class="overflow-x-auto relative shadow-md sm:rounded-lg m-4">
-	
-		<a href="/input" class="text-center"><div class="bg-gray-600 pb-10 text-white font-bold pt-10">+ TAMBAH DATA +</div></a>
-    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 mt-10">
-        <thead class="text-xl text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-            <tr>
-                <th scope="col" class="py-3 px-6">
-                    No
-                </th>
-                <th scope="col" class="py-3 px-6">
-                    Nama Penonton
-                </th>
-                <th scope="col" class="py-3 px-6">
-                    NIS
-                </th>
-                <th scope="col" class="py-3 px-6">
-                    Jenis
-                </th>
-                <th scope="col" class="py-3 px-6">
-                    Action
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    1
-                </th>
-                <td class="py-4 px-6">
-                    Luthfi
-                </td>
-                <td class="py-4 px-6">
-                    65432185
-                </td>
-                <td class="py-4 px-6">
-                    Siswa
-                </td>
-                <td class="py-4 px-6">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit </a>|<a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline"> Hapus</a>|<a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline"> Cetak</a>
-                </td>
-            </tr>
-            
-        </tbody>
-    </table>
-</div>
+
 
 	</body>
 </html>
