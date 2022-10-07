@@ -19,12 +19,24 @@ class Home extends BaseController
 	}
 	public function simpan()
 	{
+		$nama=md5($this->request->getVar('nama').rand());
+		
 		$this->PenontonModel->save([
 			'nis'=>$this->request->getVar('nis'),
 			'nama'=>$this->request->getVar('nama'),
 			'jenis'=>$this->request->getVar('jenis'),
+			'slug'=>$nama,
 			'valid'=>'false',
 		]);
 		return redirect()->to('/');
+	}
+	public function delete($id)
+	{
+		$this->PenontonModel->delete($id);
+		return redirect()->to('/');
+	}
+	public function cetak($slug)
+	{
+		
 	}
 }
