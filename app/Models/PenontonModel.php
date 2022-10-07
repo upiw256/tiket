@@ -8,6 +8,6 @@ class PenontonModel extends Model
 {
 	protected $table                = 'penonton';
 	protected $primaryKey           = 'id_penonton';
-	protected $allowedFields = ['nis','nama','jenis','valid'];
+	protected $allowedFields = ['nis','nama','jenis','slug','valid'];
 	
 }

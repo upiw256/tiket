@@ -35,6 +35,7 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->get('/input', 'Home::input');
 $routes->post('/input/simpan', 'Home::simpan');
+$routes->get('/input/delete/(:any)', 'Home::delete/$1');
 
 /*
  * --------------------------------------------------------------------

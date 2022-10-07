@@ -27,6 +27,10 @@ class Penonton extends Migration
 				'type' => 'VARCHAR',
 				'constraint' => '100',
 			),
+			'slug' => array(
+				'type' => 'VARCHAR',
+				'constraint' => '100',
+			),
 			'valid'=>array(
 				'type' => 'VARCHAR',
 				'constraint' => '100',
