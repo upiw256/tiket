@@ -91,7 +91,7 @@
                     <?= $p['jenis'] ?>
                 </td>
                 <td class="py-4 px-6">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit </a>|<a href="/input/delete/<?= $p['id_penonton'] ?>" class="font-medium text-blue-600 dark:text-blue-500 hover:underline"> Hapus</a>|<a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline"> Cetak</a>
+                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit </a>|<a href="/input/delete/<?= $p['id_penonton'] ?>" class="font-medium text-blue-600 dark:text-blue-500 hover:underline"> Hapus</a>|<a href="/input/cetak/<?= $p['slug'] ?>" class="font-medium text-blue-600 dark:text-blue-500 hover:underline"> Cetak</a>
                 </td>
             </tr>
             <?php endforeach; ?>

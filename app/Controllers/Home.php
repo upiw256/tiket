@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controllers;
-
+use App\Libraries\phpqrcode\qrlib;
 class Home extends BaseController
 {
 	public function index()
@@ -38,5 +38,9 @@ class Home extends BaseController
 	public function cetak($slug)
 	{
 		
+		$data=[
+			'cetak'=>$this->PenontonModel->where(['slug'=>$slug])->first()
+		];
+		return view('tiket',$data);
 	}
 }
