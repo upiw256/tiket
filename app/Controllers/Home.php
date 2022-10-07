@@ -37,9 +37,12 @@ class Home extends BaseController
 	}
 	public function cetak($slug)
 	{
-		
+		$cetak = $this->PenontonModel->where(['slug'=>$slug])->first();
+		if ($cetak==null) {
+			return redirect()->to('/');
+		}
 		$data=[
-			'cetak'=>$this->PenontonModel->where(['slug'=>$slug])->first()
+			'cetak'=> $cetak
 		];
 		return view('tiket',$data);
 	}

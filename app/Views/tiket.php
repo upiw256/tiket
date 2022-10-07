@@ -247,6 +247,10 @@ html {
 				<h1>EXPOSE 2022</h1>
                 <span>welcome <?= $cetak['nama'] ?></span>
                 <?php
+				
+				if ($cetak == null) {
+					redirect()->to('/');
+				}
                 if ($cetak['jenis']=='siswa') {
                     $jenis='Student';
                 }else{
@@ -279,7 +283,7 @@ html {
 				<p>DOORS <span>@</span> 7:00 PM</p>
 			</div>
 			<div class="barcode">
-				<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://192.168.0.45:8080/input/cetak/<?= $cetak['slug'] ?>" alt="QR code">
+				<img src="https://chart.googleapis.com/chart?chs=400x400&cht=qr&chl=http://192.168.0.45:8080/input/cetak/<?= $cetak['slug'] ?>&choe=UTF-8" alt="QR code">
 			</div>
 			<p class="ticket-number">
 				#<?= substr($cetak['slug'],1,6); ?>
