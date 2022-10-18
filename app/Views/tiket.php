@@ -22,7 +22,7 @@ html {
 	width: auto;
 	display: grid;
 	font-family: "Staatliches", cursive;
-	background: #d83565;
+	/* background: #d83565; */
 	color: black;
 	font-size: 14px;
 	letter-spacing: 0.1em;
@@ -223,14 +223,14 @@ html {
     </style>
 </head>
 <body>
-<div class="btn">
+<!-- <div class="btn">
 
     <a href="/" class="myButton">< Back</a>
 
 	
-    <button class="myButton" onclick="cetak()">PRINT</button>
+    <button class="myButton" onclick="print()">PRINT</button>
 
-</div>
+</div> -->
 <div class="ticket" id="ticket">
 	<div class="left">
 		<div class="image">
@@ -292,7 +292,7 @@ html {
 			</div>
 			<div class="barcode">
 				<!-- <img src="https://chart.googleapis.com/chart?chs=400x400&cht=qr&chl=http://192.168.0.45:8080/input/cetak/<?= $cetak['slug'] ?>&choe=UTF-8" alt="QR code" decoding="async" loading="lazy"> -->
-				<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=<?= $cetak['slug'] ?>" alt="QR code" decoding="async" loading="lazy">
+				<img src="https://api.qrserver.com/v1/create-qr-code/?data=<?= $cetak['slug'] ?>&amp;size=100x100" alt="QR code" decoding="async" loading="lazy">
 			</div>
 			<p class="ticket-number">
 				#<?= substr($cetak['slug'],1,6); ?>
@@ -302,12 +302,15 @@ html {
 </div>
 <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 	<script>
-	async function cetak() {
-		html2canvas(document.getElementById("ticket")).then(canvas => {
-			var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-			window.location.href=image;
-		});
-	}
+			html2canvas(document.body).then((canvas) => {
+				let a = document.createElement("a");
+				a.download = "<?= date("hi"); ?>.png";
+				a.href = canvas.toDataURL("image/png");
+				a.click();
+			});
+			setTimeout(function() {
+				window.history.back();
+			}, 1000);
 	</script>
 </body>
 </html>
