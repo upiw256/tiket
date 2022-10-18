@@ -8,6 +8,9 @@ use CodeIgniter\HTTP\IncomingRequest;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
+use \Dompdf\Dompdf;
+use Knp\Snappy\Pdf;
+use \Mpdf\Mpdf;
 
 /**
  * Class BaseController
@@ -55,5 +58,11 @@ class BaseController extends Controller
 		//--------------------------------------------------------------------
 		// E.g.: $this->session = \Config\Services::session();
 		$this->PenontonModel = new \App\Models\PenontonModel;
+		$this->pdf = new Dompdf(array(
+			'debugCss' => true,
+		));
+		$this->snappy = new Pdf('/usr/local/bin/wkhtmltopdf');
+		$this->mpdf = new \Mpdf\Mpdf();
+		
 	}
 }

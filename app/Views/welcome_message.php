@@ -50,10 +50,15 @@
 	<!-- Form -->
 	
 <div class="overflow-x-auto relative shadow-md sm:rounded-lg m-4">
-	
-		<a href="/input" class="text-center"><div class="bg-gray-600 pb-10 text-white font-bold pt-10">+ TAMBAH DATA +</div></a>
+<div class="grid grid-cols-1 divide-y">
+  <div><a href="/input" class="text-center"><div class="bg-gray-600 pb-10 text-white font-bold pt-10">+ TAMBAH DATA +</div></a></div>
+  <div><a href="/print" class="text-center"><div class="bg-gray-600 pb-10 text-white font-bold pt-10 ">PRINT SEMUA</div></a></div>
+
+</div>
+		
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 mt-10">
-        <thead class="text-xl text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+	
+	<thead class="text-xl text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="py-3 px-6">
                     No

@@ -8,7 +8,9 @@
 		"php": "^7.3||^8.0",
 		"codeigniter4/framework": "^4",
 		"dompdf/dompdf": "^2.0",
-		"endroid/qr-code": "^4.6"
+		"endroid/qr-code": "^4.6",
+		"knplabs/knp-snappy": "^1.4",
+		"mpdf/mpdf": "^8.1"
 	},
 	"require-dev": {
 		"fakerphp/faker": "^1.9",

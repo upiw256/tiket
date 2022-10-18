@@ -7,8 +7,9 @@
     <title>Tiketing</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <style>
+	
         @import url("https://fonts.googleapis.com/css2?family=Staatliches&display=swap");
-		@import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap");
 
 * {
 	margin: 0;
@@ -18,8 +19,7 @@
 
 body,
 html {
-	height: auto;
-	width: auto;
+	height: 100vh;
 	display: grid;
 	font-family: "Staatliches", cursive;
 	background: #d83565;
@@ -33,7 +33,6 @@ html {
 	display: flex;
 	background: white;
 	box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-	margin-bottom: 20px;
 }
 
 .left {
@@ -43,7 +42,7 @@ html {
 .image {
 	height: 250px;
 	width: 250px;
-	background-image: url("/assets/logo.jpeg");
+	background-image: url("https://media.pitchfork.com/photos/60db53e71dfc7ddc9f5086f9/1:1/w_1656,h_1656,c_limit/Olivia-Rodrigo-Sour-Prom.jpg");
 	background-size: contain;
 	opacity: 0.85;
 }
@@ -51,9 +50,9 @@ html {
 .admit-one {
 	position: absolute;
 	color: darkgray;
-	height: 300px;
-	padding: 0 2px;
-	letter-spacing: 0.10em;
+	height: 250px;
+	padding: 0 10px;
+	letter-spacing: 0.15em;
 	display: flex;
 	text-align: center;
 	justify-content: space-around;
@@ -73,11 +72,10 @@ html {
 	justify-content: flex-end;
 	align-items: flex-end;
 	padding: 5px;
-	color: white;
 }
 
 .ticket-info {
-	padding: 0px 30px;
+	padding: 10px 30px;
 	display: flex;
 	flex-direction: column;
 	/* text-align: center; */
@@ -159,7 +157,7 @@ html {
 }
 
 .right {
-	width: 250px;
+	width: 180px;
 	border-left: 1px dashed #404040;
 }
 
@@ -206,7 +204,6 @@ html {
 
 .barcode {
 	height: 100px;
-	width: 100px;
 }
 
 .barcode img {
@@ -220,18 +217,16 @@ html {
     margin: 20px;
 }
 
+
     </style>
 </head>
 <body>
-<div class="btn">
-
-    <a href="/" class="myButton">< Back</a>
-
 	
-    <button class="myButton" onclick="cetak()">PRINT</button>
+<?php
 
-</div>
-<div class="ticket" id="ticket">
+foreach($tiket as $p):
+?>
+<div class="ticket">
 	<div class="left">
 		<div class="image">
 			<p class="admit-one">
@@ -241,7 +236,7 @@ html {
 			</p>
 			<div class="ticket-number">
 				<p>
-                <?= substr($cetak['slug'],1,6); ?>
+                <?= substr($p['slug'],1,6); ?>
 				</p>
 			</div>
 		</div>
@@ -253,13 +248,13 @@ html {
 			</p>
 			<div class="show-name">
 				<h1>EXPOSE 2022</h1>
-                <span>welcome <?= $cetak['nama'] ?></span>
+                <span>welcome <?= $p['nama'] ?></span>
                 <?php
 				
-				if ($cetak == null) {
+				if ($p == null) {
 					redirect()->to('/');
 				}
-                if ($cetak['jenis']=='siswa') {
+                if ($p['jenis']=='siswa') {
                     $jenis='Student';
                 }else{
                     $jenis='Guest';
@@ -284,30 +279,23 @@ html {
 		</p>
 		<div class="right-info-container">
 			<div class="show-name">
-				<h1><?= $cetak['nama'] ?></h1>
+				<h1><?= $p['nama'] ?></h1>
 			</div>
 			<div class="time">
 				<p>8:00 PM <span>TO</span> 11:00 PM</p>
 				<p>DOORS <span>@</span> 7:00 PM</p>
 			</div>
 			<div class="barcode">
-				<!-- <img src="https://chart.googleapis.com/chart?chs=400x400&cht=qr&chl=http://192.168.0.45:8080/input/cetak/<?= $cetak['slug'] ?>&choe=UTF-8" alt="QR code" decoding="async" loading="lazy"> -->
-				<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=<?= $cetak['slug'] ?>" alt="QR code" decoding="async" loading="lazy">
+				<img src="https://chart.googleapis.com/chart?chs=400x400&cht=qr&chl=http://192.168.0.45:8080/input/cetak/<?= $p['slug'] ?>&choe=UTF-8" alt="QR code">
 			</div>
 			<p class="ticket-number">
-				#<?= substr($cetak['slug'],1,6); ?>
+				#<?= substr($p['slug'],1,6); ?>
 			</p>
 		</div>
 	</div>
 </div>
-<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-	<script>
-	async function cetak() {
-		html2canvas(document.getElementById("ticket")).then(canvas => {
-			var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-			window.location.href=image;
-		});
-	}
-	</script>
+<?php
+endforeach;
+?>
 </body>
 </html>

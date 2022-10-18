@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Controllers;
-use App\Libraries\phpqrcode\qrlib;
 class Home extends BaseController
 {
 	public function index()
@@ -45,5 +44,23 @@ class Home extends BaseController
 			'cetak'=> $cetak
 		];
 		return view('tiket',$data);
+	}
+	public function print()
+	{
+		$penonton = $this->PenontonModel->findAll();
+		$data=[
+			'tiket'=>$penonton
+		];
+		// header('Content-Type: application/pdf');
+		// return view('print',$data);
+		// $html= view('print',$data);
+		// $this->pdf->loadHtml($html);
+		// $this->pdf->setPaper('A4','portrait');
+		// $this->pdf->render();
+		// $this->pdf->stream();
+		// $this->mpdf->WriteHTML('<h1>Hello world!</h1>');
+		// $this->mpdf->Output();
+		
+		
 	}
 }
