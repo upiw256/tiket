@@ -49,7 +49,7 @@
 
 	<!-- Form -->
     <div class="w-full max-w-xs m-10">
-  <form action="/input/simpan" method="post" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 ">
+  <form action="/input/simpan" method="post" enctype="multipart/form-data" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 ">
     <div class="mb-4">
       <label class="block text-gray-700 text-sm font-bold mb-2" for="nama">
         Nama

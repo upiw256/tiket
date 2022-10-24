@@ -290,9 +290,9 @@ html {
 				<p>8:00 PM <span>TO</span> 11:00 PM</p>
 				<p>DOORS <span>@</span> 7:00 PM</p>
 			</div>
-			<div class="barcode">
+			<div class="barcode" >
 				<!-- <img src="https://chart.googleapis.com/chart?chs=400x400&cht=qr&chl=http://192.168.0.45:8080/input/cetak/<?= $cetak['slug'] ?>&choe=UTF-8" alt="QR code" decoding="async" loading="lazy"> -->
-				<img src="https://api.qrserver.com/v1/create-qr-code/?data=<?= $cetak['slug'] ?>&amp;size=100x100" alt="QR code" decoding="async" loading="lazy">
+				<img id="barcode" src="https://api.qrserver.com/v1/create-qr-code/?data=<?= $cetak['slug'] ?>&amp;size=100x100" alt="QR code" decoding="async" loading="lazy">
 			</div>
 			<p class="ticket-number">
 				#<?= substr($cetak['slug'],1,6); ?>
@@ -302,7 +302,7 @@ html {
 </div>
 <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 	<script>
-			html2canvas(document.body).then((canvas) => {
+			html2canvas(document.getElementById("barcode")).then((canvas) => {
 				let a = document.createElement("a");
 				a.download = "<?= date("hi"); ?>.png";
 				a.href = canvas.toDataURL("image/png");
